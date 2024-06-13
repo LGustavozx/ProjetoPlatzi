@@ -1,0 +1,4 @@
+<div *ngIf="category" class="container mt-4">
+  <h2>{{ category.name }}</h2>
+  <img [src]="getSafeUrl(category.image)" alt="{{ category.name }}" class="img-fluid mt-3 category-image">
+</div>
