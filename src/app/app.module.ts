@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { CategoryDetailComponent } from './pages/category-detail/category-detail.component';
+import { LogoutModalComponent } from './shared/logout-modal/logout-modal.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { CategoryDetailComponent } from './pages/category-detail/category-detail
     SearchBarComponent,
     LoginComponent,
     HomeComponent,
-    CategoryDetailComponent
+    CategoryDetailComponent,
+    LogoutModalComponent
   ],
   imports: [
     BrowserModule,

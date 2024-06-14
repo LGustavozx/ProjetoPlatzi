@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthService } from 'src/app/service/auth.service';
+import { AuthService } from 'src/app/service/auth.service'; // Certifique-se de que o caminho está correto
 
 @Component({
   selector: 'app-login',
@@ -17,7 +17,7 @@ export class LoginComponent {
     if (!this.authService.login(this.username, this.password)) {
       this.errorMessage = 'Usuário ou senha inválida';
     } else {
-      this.errorMessage = '';
+      this.errorMessage = ''; 
     }
   }
 }

@@ -1,4 +1,5 @@
 import { Component, Output, EventEmitter, Input } from '@angular/core';
+import * as bootstrap from 'bootstrap';
 
 import { AuthService } from 'src/app/service/auth.service';
 
@@ -20,5 +21,12 @@ export class HeaderComponent {
   onLogout(): void {
     this.authService.logout();
   }
-
+  confirmLogout(): void {
+    this.authService.logout();
+    const modalElement = document.getElementById('logoutModal');
+    if (modalElement) {
+      const modalInstance = bootstrap.Modal.getInstance(modalElement);
+      modalInstance?.hide();
+    }
+  }
 }

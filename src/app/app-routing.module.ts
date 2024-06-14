@@ -5,7 +5,6 @@ import { ProductListComponent } from './pages/product-list/product-list.componen
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
 import { CategoryListComponent } from './pages/category-list/category-list.component';
 import { CategoryDetailComponent } from './pages/category-detail/category-detail.component';
-
 import { AuthGuard } from './auth/auth.guard';
 import { LoginComponent } from './components/login/login.component';
 

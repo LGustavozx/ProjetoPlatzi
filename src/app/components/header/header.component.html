@@ -1,11 +1,16 @@
 <header>
   <div>
     <nav class="navbar navbar-light d-flex justify-content-between">
-      <button class="navbar-toggler" type="button" (click)="toggleSidebar()" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" (click)="toggleSidebar()" aria-controls="navbarNav"
+        aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <a class="navbar-brand" href="#">Platzi Store</a>
-      <button class="btn btn-outline-light" (click)="onLogout()">Logout</button>
+      <div style="margin-right: 5px;">
+        <button class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#logoutModal">Logout</button>
+      </div>
     </nav>
   </div>
 </header>
+
+<app-logout-modal></app-logout-modal>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CategoryService } from 'src/app/service/category.service';
 import { Category } from 'src/app/models/product';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
@@ -14,6 +14,7 @@ export class CategoryDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private categoryService: CategoryService,
     private sanitizer: DomSanitizer
   ) { }
@@ -27,7 +28,7 @@ export class CategoryDetailComponent implements OnInit {
 
   getSafeUrl(url: string): SafeUrl {
     if (this.isValidUrl(url)) {
-      const cleanUrl = url.replace(/['"%\[\]]/g, ''); // Remove caracteres indesejados
+      const cleanUrl = url.replace(/['"%\[\]]/g, '');
       return this.sanitizer.bypassSecurityTrustUrl(cleanUrl);
     }
     return this.sanitizer.bypassSecurityTrustUrl('https://via.placeholder.com/150?text=Image+Not+Found');
@@ -40,5 +41,9 @@ export class CategoryDetailComponent implements OnInit {
     } catch (_) {
       return false;
     }
+  }
+
+  goBack(): void {
+    this.router.navigate(['/categories']);
   }
 }

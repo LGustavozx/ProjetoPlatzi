@@ -8,6 +8,7 @@ export class AuthService {
   private isAuthenticated = false;
 
   constructor(private router: Router) {
+
     const user = localStorage.getItem('user');
     if (user) {
       this.isAuthenticated = true;
@@ -18,7 +19,7 @@ export class AuthService {
     if (username === '123' && password === '123') {
       this.isAuthenticated = true;
       localStorage.setItem('user', username);
-      this.router.navigate(['/products']);
+      this.router.navigate(['/']); 
       return true;
     }
     return false;
