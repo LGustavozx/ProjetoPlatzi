@@ -1,0 +1,24 @@
+.container {
+  background-color: #f8f9fa;
+  padding: 50px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  .card {
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    h2 {
+      color: #343a40;
+    }
+
+    .btn-primary {
+      background-color: #007B6E;
+      border-color: #007B6E;
+      &:hover {
+        background-color: #009b8b;
+        border-color: #009b8b;
+      }
+    }
+  }
+}

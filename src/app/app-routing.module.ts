@@ -6,12 +6,16 @@ import { ProductDetailComponent } from './pages/product-detail/product-detail.co
 import { CategoryListComponent } from './pages/category-list/category-list.component';
 import { CategoryDetailComponent } from './pages/category-detail/category-detail.component';
 
+import { AuthGuard } from './auth/auth.guard';
+import { LoginComponent } from './components/login/login.component';
+
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'products', component: ProductListComponent },
-  { path: 'product/:id', component: ProductDetailComponent },
-  { path: 'categories', component: CategoryListComponent },
-  { path: 'category/:id', component: CategoryDetailComponent },
+  { path: 'login', component: LoginComponent },
+  { path: '', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'products', component: ProductListComponent, canActivate: [AuthGuard] },
+  { path: 'product/:id', component: ProductDetailComponent, canActivate: [AuthGuard] },
+  { path: 'categories', component: CategoryListComponent, canActivate: [AuthGuard] },
+  { path: 'category/:id', component: CategoryDetailComponent, canActivate: [AuthGuard] },
   { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 

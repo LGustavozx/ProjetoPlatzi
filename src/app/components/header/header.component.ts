@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, Output, EventEmitter, Input } from '@angular/core';
+
+import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -7,21 +8,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  username: string | null = '';
+  @Output() toggleSidebarEvent = new EventEmitter<void>();
+  @Input() showToggle: boolean = true;
 
-  constructor(private router: Router) {
-    this.username = localStorage.getItem('username');
+  constructor(private authService: AuthService) {}
+
+  toggleSidebar(): void {
+    this.toggleSidebarEvent.emit();
   }
 
   onLogout(): void {
-    localStorage.removeItem('username');
-    this.router.navigate(['/login']);
+    this.authService.logout();
   }
 
-  toggleSidebar(): void {
-    const sidebar = document.getElementById('sidebar-wrapper');
-    if (sidebar) {
-      sidebar.classList.toggle('active');
-    }
-  }
 }

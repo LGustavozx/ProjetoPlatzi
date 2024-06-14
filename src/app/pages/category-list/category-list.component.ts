@@ -20,4 +20,11 @@ export class CategoryListComponent implements OnInit {
       this.filteredCategories = data;
     });
   }
+
+  onSearch(term: string): void {
+    this.searchTerm = term;
+    this.filteredCategories = this.categories.filter(category =>
+      category.name.toLowerCase().includes(term.toLowerCase())
+    );
+  }
 }

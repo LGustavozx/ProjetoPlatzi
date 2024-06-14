@@ -1,9 +1,12 @@
 <div class="container mt-4">
   <div class="category">
     <h2>Categories</h2>
-    <app-search-bar></app-search-bar>
+    <app-search-bar (search)="onSearch($event)"></app-search-bar>
   </div>
-  <div class="list-group">
+  <div *ngIf="filteredCategories.length === 0" class="mt-4">
+    <p class="alert alert-info">Essa categoria não existe</p>
+  </div>
+  <div *ngIf="filteredCategories.length > 0" class="list-group">
     <a *ngFor="let category of filteredCategories" [routerLink]="['/category', category.id]" class="list-group-item list-group-item-action">
       {{ category.name }}
     </a>

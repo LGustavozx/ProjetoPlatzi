@@ -1,9 +1,12 @@
-<app-header></app-header>
-<div class="d-flex" id="wrapper">
+<app-header *ngIf="showSidebar" (toggleSidebarEvent)="toggleSidebar()"></app-header>
+<div [class.toggled]="sidebarActive" *ngIf="showSidebar" id="wrapper">
   <app-sidebar></app-sidebar>
   <div id="page-content-wrapper" style="height: 100vh; width: 100%;">
     <div class="container-fluid">
       <router-outlet></router-outlet>
     </div>
   </div>
+</div>
+<div *ngIf="!showSidebar">
+  <router-outlet></router-outlet>
 </div>
